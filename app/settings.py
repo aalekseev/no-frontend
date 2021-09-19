@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "main",
     "accounts",
+    "notes",
 ]
 
 MIDDLEWARE = [

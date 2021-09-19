@@ -1,0 +1,15 @@
+{% extends "app.html" %}
+
+{% block page_content %}
+<a href="{% url 'notes:list' %}"><<< Back to list</a>
+{% if object.title %}
+<h2>{{ object.title }} (Editing)</h2>
+{% else %}
+<h2>New Note</h2>
+{% endif %}
+<form action="" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <input class="button primary" type="submit" value="Save">
+</form>
+{% endblock %}

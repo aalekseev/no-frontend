@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TG-Hug: {% block seo_page_title %}{% endblock %}</title>
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/vendor/milligram.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/vendor/unpoly.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/vendor/chota.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/vendor/unpoly.min.js' %}"></script>
   </head>
-  <body class="{% block body_styles %}{% endblock %}">
+  <body class="container">
     {% block content %}{% endblock content %}
   </body>
 </html>

@@ -2,20 +2,18 @@
 {% block page_title %}Login{% endblock %}
 {% block content %}
 
-<main>
+<article>
   <header>
     <h1>No Frontend App</h1>
-    <p>There is really no Frontend</p>
   </header>
 
   <section>
-    {% if form.errors %}
-    <div>
-      <p>Your username and password didn't match. Please try again.</p>
-    </div>
-    {% endif %}
-
-    <form method="post" action="{% url 'login' %}">
+    <form method="post" action="{% url 'login' %}" up-submit>
+      {% if form.errors %}
+      <div class="card text-error">
+        <p>Your username and password didn't match. Please try again!</p>
+      </div>
+      {% endif %}
       {% csrf_token %}
       <div>
           <label for="id_username">Email address:</label>
@@ -25,6 +23,7 @@
         <label for="id_password">Password:</label>
         <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
       </div>
+      <hr>
       <div>
         <input type="submit" value="Login">
         <input type="hidden" name="next" value="{{ next }}">
@@ -33,6 +32,6 @@
       </div>
     </form>
   </section>
-</main>
+</article>
 
 {% endblock %}

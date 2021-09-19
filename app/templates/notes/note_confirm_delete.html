@@ -1,0 +1,10 @@
+{% extends "app.html" %}
+
+{% block page_content %}
+<a href="{% url 'notes:list' %}"><<< Back to list</a>
+<form method="post" class="confirm" action="{% url 'notes:delete' object.pk %}">
+  {% csrf_token %}
+  <p>Are you sure you want to delete "{{ object.title }}"?</p>
+  <input class="button error" type="submit" value="Confirm">
+</form>
+{% endblock %}

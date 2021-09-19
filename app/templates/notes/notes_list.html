@@ -1,0 +1,39 @@
+{% extends "app.html" %}
+
+{% block page_content %}
+<h1 class="is-center">My Awesome Notes</h1>
+<div class="notes">
+  {% for note in page_obj %}
+  <div class="card">
+    <header><h3>{{ note.title }}</h3></header>
+    <p>{{ note.text|truncatechars:50 }}</p>
+    <footer class="is-right">
+      <a class="button outline primary text-primary" href="{% url 'notes:update' note.pk %}">Edit</a>
+      <a class="button error" href="{% url 'notes:delete' note.pk %}" up-layer="new" up-target=".confirm" up-size="small">Remove</a>
+    </footer>
+  </div>
+  {% empty %}
+    <p class="is-center">No notes exists...</p>
+  {% endfor %}
+</div>
+
+<p class="is-center">
+  <a class="button primary" href="{% url 'notes:add' %}">Add new Note</a>
+</p>
+
+<div class="pagination is-center">
+  <span class="step-links">
+    {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+    {% endif %}
+
+    <span class="current">
+      Page {{ page_obj.number }} of {{ paginator.num_pages }}.
+    </span>
+
+    {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">next</a>
+    {% endif %}
+  </span>
+</div>
+{% endblock %}

@@ -1,31 +1,14 @@
-:root {
-  --color-white: #F2F2F2;
-  --color-gray-light: #A6A6A6;
-  --color-gray-medium: #595959;
-  --color-gray-dark: #262626;
-  --color-black: #0D0D0D;
+.notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-bottom: 1rem;
 }
 
-button, input[type=submit] {
-  background-color: var(--color-black);
-}
-
-a {
-  color: var(--color-black)
-}
-
-input:focus {
-  border-color: var(--color-black) !important;
-}
-
-main {
-  max-width: 50%;
-  margin: 0 auto;
-}
-
-nav {
+.user {
   display: flex;
-  place-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--color-gray-dark);
+  height: 100%;
+  font-weight: 600;
+  font-size: 2rem;
 }
