@@ -1,0 +1,34 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./app:/app"
+      - "./.data/staticfiles:/app/staticfiles"
+      - "./.data/media:/media"
+    environment:
+      - PYTHONUNBUFFERED=0
+    command: python manage.py runserver 0.0.0.0:8000 --nostatic
+    entrypoint: /usr/bin/wait-for-it.sh postgres:5432 -t 60 --
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:13
+    # Comment in the following lines to connect to your Dockerized instance of Postgres from your host machine.
+    # Change the host port (before colon) if you have a local instance of Postgres running on that port.
+    # ports:
+    #     - "5432:5432"
+    volumes:
+      - ".data/postgres:/var/lib/postgresql/data"
+    environment:
+      # credentials taken from .env file
+      POSTGRES_DB: "${DATABASE_NAME:-nofrontend}"
+      POSTGRES_USER: "${DATABASE_USER:-nofrontend}"
+      POSTGRES_PASSWORD: "${DATABASE_PASSWORD:-nofrontend}"

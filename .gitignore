@@ -1,0 +1,16 @@
+.env
+.idea/
+
+*.mo
+*.pyo
+*.pyc
+.cache/
+
+.data*/
+
+.pytest_cache/
+.mypy_cache/
+.coverage/
+coverage*
+htmlcov/
+cover/

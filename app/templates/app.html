@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_styles %}grid sm:flex{% endblock %}
+{% block content %}
+  <main>
+    <nav>
+      <div>
+        <button>🍔</button>
+        <a href="/">No Frontend App</a>
+        <span>{% block page_title %}{% endblock %}</span>
+      </div>
+      <div>
+        <span>{{ user.email }}</span>
+        <a href="{% url 'admin:index' %}">admin</a>
+        <a href="{% url 'logout' %}">logout</a>
+      </div>
+    </nav>
+    <div>
+      {% block page_content %}{% endblock %}
+    </div>
+  </main>
+{% endblock content %}

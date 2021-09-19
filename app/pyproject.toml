@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "no-frontend"
+version = "0.1.0"
+description = "A silly proof of concept of using Django & Unpoly"
+authors = ["Anton Alekseev <hi@aalekseev.me>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "3.9.*"
+psycopg2-binary = "*"
+django-environ = "*"
+gunicorn = "==20.*"
+whitenoise = "^5.3.0"
+Django = "==3.*"
+
+[tool.poetry.dev-dependencies]
+black = "*"
+coverage = "*"
+ipdb = "*"
+isort = "*"
+pytest = "*"
+pytest-django = "*"
+pytest-cov = "*"
+django-stubs = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
